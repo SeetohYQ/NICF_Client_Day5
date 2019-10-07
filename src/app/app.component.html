@@ -1,5 +1,9 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" fxLayout="row column" fxLayoutAlign="space-between center">
     <span>Vinyl/LP Collection Management</span> 
+    <button mat-icon-button [disabled]="!shareable"
+    (click)="shareTheApp()">
+    <mat-icon>share</mat-icon>
+    </button>
 </mat-toolbar>
 
 <app-add (onAddNewVinyl)="addNewVinyl($event)"></app-add>

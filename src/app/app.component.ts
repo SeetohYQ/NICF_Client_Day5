@@ -9,6 +9,7 @@ import { Vinyl } from './models';
 export class AppComponent {
   title = 'day5assessment';
   allVinyls: Vinyl[];
+  shareable: boolean = false;
 
   ngOnInit() {
     this.allVinyls = [
@@ -28,7 +29,21 @@ export class AppComponent {
   }
 
   addNewVinyl(newVinyl: Vinyl){
-    console.log(newVinyl);
     this.allVinyls.push(newVinyl);
+    this.allVinyls.sort((
+      (a: Vinyl, b: Vinyl) => {
+        return a.artist.localeCompare(b.artist);
+      }
+    ))
+  }
+
+  shareTheApp() {
+    navigator['share']({
+      title: 'Vinyl/LP Collection',
+      text: 'Manage your vintage collection',
+      url: 'https://developers.google.com/web',
+  })
+    .then(() => console.log('Successful share'))
+    .catch((error) => console.log('Error sharing', error));
   }
 }

@@ -26,7 +26,7 @@ export class AddComponent implements OnInit {
     }
 
     this.onAddNewVinyl.emit(newVinyl);
-    this.form.resetForm;
+    this.form.resetForm();
   }
 
 }
