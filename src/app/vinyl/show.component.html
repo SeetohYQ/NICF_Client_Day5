@@ -1,0 +1,13 @@
+<div style="margin-left:40vw; margin-right: 20vw">
+    <h2>All Collections</h2>
+    <mat-card *ngFor="let vinyl of allVinyls"
+    class="resize_card" fxLayout="column row" fxLayoutAlign="center">
+        <mat-card-header>
+            <mat-card-title>{{vinyl.albumName}}</mat-card-title>
+            <mat-card-subtitle>By: {{vinyl.artist}}</mat-card-subtitle>
+            <mat-card-subtitle>Rating: {{vinyl.rating}} / 10</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="vinyl.coverImageUrl" alt="/assets/vinyl.jpg"
+        onerror="this.src='/assets/vinyl.jpg'">
+    </mat-card>
+</div>

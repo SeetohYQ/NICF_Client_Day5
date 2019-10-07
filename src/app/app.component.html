@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+    <span>Vinyl/LP Collection Management</span> 
+</mat-toolbar>
+
+<app-add (onAddNewVinyl)="addNewVinyl($event)"></app-add>
+
+<app-show [allVinyls]="allVinyls"></app-show>

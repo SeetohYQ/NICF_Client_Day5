@@ -1,0 +1,37 @@
+<div style="margin-left:20vw; margin-right: 20vw">
+    <h2>Add New Album</h2>
+    <form #f="ngForm" (ngSubmit)="onAdd()"  fxLayout="column row">
+        <mat-form-field>
+            <input type="text" name="albumName" placeholder="Name of album" 
+            matInput ngModel required
+            #albumField="ngModel">
+
+            <mat-error *ngIf="albumField.touched && !albumField.valid">
+                Please enter album name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" name="artist" placeholder="Artist" 
+            matInput ngModel required
+            #artistField="ngModel">
+
+            <mat-error *ngIf="artistField.touched && !artistField.valid">
+                Please enter artist name
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="number" name="rating" min="0" max="10" placeholder="Album rating (0-10)" matInput ngModel
+            validRating
+            #ratingField="ngModel"
+            [ngModel]="5">
+
+            <mat-error *ngIf="ratingField.touched && !ratingField.valid">
+                {{ratingField.errors.ratingError}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" name="imageUrl" placeholder="Album cover image url" matInput ngModel>
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit" [disabled]="!f.valid" class="material-cust-medium-button">Add New</button>
+    </form>
+</div>
