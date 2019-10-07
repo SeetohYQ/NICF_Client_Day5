@@ -12,6 +12,7 @@ export class AppComponent {
   shareable: boolean = false;
 
   ngOnInit() {
+    this.shareable = !! navigator['share'];
     this.allVinyls = [
       {
         albumName: 'Meteora',
